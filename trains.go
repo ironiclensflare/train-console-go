@@ -1,13 +1,14 @@
 package main
 
 import (
-  "github.com/ironiclensflare/train-console/trainclient"
-  "fmt"
+	"fmt"
+
+	"github.com/ironiclensflare/train-console/trainclient"
 )
 
 func main() {
-  client := trainclient.TrainClient{"12345"}
-  trains := client.GetAllDepartures("NOT")
-  fmt.Println(trains)
+	client := trainclient.TrainClient{ApiKey: "12345"}
+	departures := client.GetAllDepartures("NOT")
+	arrivals := client.GetAllArrivals("STP")
+	fmt.Println(departures, arrivals)
 }
-
